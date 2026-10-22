@@ -99,11 +99,11 @@
     & .wheel-pointer {
         position: absolute;
         top: 50%;
-        left: -12px;
+        right: -12px;
         transform: translateY(-50%);
         width: 0;
         height: 0;
-        border-left: 40px solid #333;
+        border-right: 40px solid #333;
         border-top: 24px solid transparent;
         border-bottom: 24px solid transparent;
         z-index: 1;
