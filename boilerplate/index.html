@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="page">
+    <div id="counter"></div>
+    <button id="my-lamp" can-toggle can-move>Klik dat</button>
+    <div id="new-visitor"></div>
+    <div id="live-count"></div>
+    
+    <!-- The wrapper holds the pointer, which stays still while the wheel spins.
+    can-spin: drag the wheel left or right to turn it, and everyone sees it turn. -->
+    <div class="wheel-wrapper">
+        <div class="wheel-pointer"></div>
+        <div id="wheel-of-fortune" can-spin>
+            <!-- Each label needs its own id so playhtml can share it.
+                 contenteditable lets you click and type in it. -->
+            <div id="wheel-label-1" class="wheel-label" contenteditable>Change</div>
+            <div id="wheel-label-2" class="wheel-label" contenteditable>These</div>
+            <div id="wheel-label-3" class="wheel-label" contenteditable>Right</div>
+            <div id="wheel-label-4" class="wheel-label" contenteditable>Now</div>
+            <div id="wheel-label-5" class="wheel-label" contenteditable>Wow</div>
+            <div id="wheel-label-6" class="wheel-label" contenteditable>WWW</div>
+        </div>
+    </div>
+    <script src="script.js" type="module"></script>
+</body>
+</html>

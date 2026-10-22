@@ -1,0 +1,113 @@
+#my-lamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    border: 0;
+    background: #ccc;
+    color: #333;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 10vw;
+    z-index: 10;
+}
+
+#my-lamp.toggled {
+    background: #6cd97e;
+    color: #fff;
+}
+
+#new-visitor {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 5vw;
+    color: #333;
+}
+/* Live visitor count, pinned to the top right corner */
+#live-count {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: #333;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-family: sans-serif;
+}
+
+/* Wheel of fortune, bottom left */
+.wheel-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 50vw;
+    
+    /* The wheel: a circle split into 6 colored slices */
+    & #wheel-of-fortune {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 4px solid #333;
+        box-sizing: border-box;
+        cursor: grab;
+        background: conic-gradient(
+            #ff6b6b 0deg 60deg,
+            #ffd93d 60deg 120deg,
+            #6cd97e 120deg 180deg,
+            #4dabf7 180deg 240deg,
+            #9775fa 240deg 300deg,
+            #f783ac 300deg 360deg
+        );
+
+        /* Each label is a strip from the center of the wheel to its edge.
+           We rotate the strip around the wheel's center so it lies across the
+           middle of its slice, then center the text inside the strip. */
+        & div {
+            font-size: 5vw;
+            position: absolute;
+            /* start at the center of the wheel... */
+            top: 50%;
+            left: 50%;
+            /* ...as a strip as long as the radius, 1 line tall */
+            width: 50%;
+            height: 1em;
+            line-height: 1em;
+            margin-top: -0.5em;
+            text-align: center;
+            /* rotate around the strip's left end, which is the wheel's center */
+            transform-origin: 0 50%;
+            /* the wheel's slices start at the top, but 0deg here points right,
+               so subtract 90deg */
+            transform: rotate(calc(var(--angle) - 90deg));
+            &:focus {
+                outline: none;
+            }
+            /* the middle of each 60deg slice: 30, 90, 150, ... */
+            &:nth-child(1) { --angle: 30deg; }
+            &:nth-child(2) { --angle: 90deg; }
+            &:nth-child(3) { --angle: 150deg; }
+            &:nth-child(4) { --angle: 210deg; }
+            &:nth-child(5) { --angle: 270deg; }
+            &:nth-child(6) { --angle: 330deg; }
+        }
+    }
+    /* The little triangle at the top that shows where the wheel landed */
+    & .wheel-pointer {
+        position: absolute;
+        top: 50%;
+        left: -12px;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 40px solid #333;
+        border-top: 24px solid transparent;
+        border-bottom: 24px solid transparent;
+        z-index: 1;
+    }
+}
+
+
