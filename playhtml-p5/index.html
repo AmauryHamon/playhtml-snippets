@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playhtml + p5</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Load p5 first (a normal script), so setup() and draw() work as usual. -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.1/lib/p5.min.js"></script>
+</head>
+<body>
+    <!-- p5 puts its <canvas> inside this box (see createCanvas in script.js).
+         playhtml stores the shared drawing on this element. -->
+    <div id="sketch"></div>
+    <div id="live-count"></div>
+    <button id="clear">clear</button>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
